@@ -1,0 +1,128 @@
+/* 폰트 로드 */
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+/* 위치 기본 설정 */
+html
+{
+	/* 송출 소프트웨어의 disable scrollbar 여부에 상관 없이 스크롤바를 나타나지 않게 함 */
+	overflow:hidden;
+}
+
+
+body
+{
+	position:absolute;
+
+	/* html의 기본 여백 제거 */
+	margin:0; right:0; left:0;
+	/* 채팅 메세지가 아래에서부터 나타나도록 */
+	bottom:0;
+}
+
+
+
+/* 최대(기본) 크기는 112px */
+img.twitch_emote	{	max-height:50px; }*/
+
+@keyframes SubsAni { 50%	{ color:red; } }
+.chat_subscribe_box,
+.chat_cheer_box			{	text-align:center;
+											animation:SubsAni 6 1s ease;}
+/* 후원 금액 */
+.chat_cheer_text									{ color:red; display:inline-block; }
+/* 후원 아이콘 */
+.chat_cheer_text img.cheer_icon		{	max-height:1em; vertical-align: middle; }
+@keyframes fadeIn {
+   0% {opacity: 0;}
+   100% {opacity: 1;}
+}
+
+#background	{	position:absolute; left:0; right:0; top:0; bottom:0; }
+
+
+
+/* 폰트 설정 */
+html								{	font-family:'Noto Sans KR', serif;
+											/**/
+											font-weight: 300;
+											line-height: 1.5em;
+										}
+
+.chat_upper_box {
+  background: rgba(200, 200, 200, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.chat_nickname_box	{	font-size:1em;color: white; font-weight: 400;
+  padding: 2.4px 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+  text-shadow: 0 0 2px #100, 0 0 2px #000;
+  /*background:radial-gradient(rgba(200, 200, 200, 0.6),rgba(150, 150, 150, 0.7), rgba(130, 130, 130, 0.8));*/
+  background: rgba(170, 170, 170,0.5);
+   }
+
+
+.chat_outer_box			{	position:relative; z-index:0; overflow:hidden;
+											margin-top:10px; padding:1px;
+											animation: fadeIn .5s ease forwards;
+										-webkit-animation: fadeIn .5s ease forwards;
+										 }
+
+
+.chat_nickname_box,
+.chat_badge_box 		{	display:inline-block;}
+.chat_badge_box { padding-left: 15px;vertical-align: middle;}
+.chat_outer_box .chat_msg_box,
+.chat_lower_box			{ clear:right;font-size: 1em;color: #fff;
+  background: rgba(0, 0, 0, 0.15);}
+
+.chat_msg_box						{	white-space:pre-line; word-break:break-word;
+													max-height:100px;
+                          padding: 4px 8px;
+                        text-shadow: 0 0 1px #000, 0 0 1px #000;}
+
+
+.chat_msg_box.image_only	{	text-align:center; }
+
+.clip_included .chat_msg_box /* SOON DEPRECATED */
+{
+	/* 클립과 일반 텍스트를 같이 보냈을 경우를 위해 높이를 높여준다 */
+	max-height:160px;
+}
+
+.chat_clip_box
+{
+	/* .chat_clip_by의 absolute position을 위해 설정 */
+	position:relative;
+}
+
+.chat_clip_box img
+{
+	/* 사실상 이 속성으로 .chat_clip_box의 높이를 조절 */
+	height:56px;
+	/* .chat_clip_box의 나머지 DOM을 오른쪽에 배치시키기 위해 float을 이용 */
+	float:left;
+}
+.chat_clip_title
+{
+	/* 가로세로로 모두 가운데정렬하기 위해 사용. .chat_clip_box img의 높이와 맞춰준다 */
+	line-height:56px;
+	text-align:center;
+
+	/* 제목이 길 경우를 대비 */
+	white-space:pre;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+.chat_clip_by
+{
+	/* .chat_clip_box의 우하단에 배치 */
+	position:absolute; bottom:0; right:0;
+	/* config client로 조절하지 않는 글꼴크기이므로 .chat_msg_box에서 상속받아 조절 */
+	font-size:0.7em;
+}
+
+.chat_clip_box.text_only
+{
+	text-align:center;
+}
